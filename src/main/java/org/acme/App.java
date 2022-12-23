@@ -5,7 +5,12 @@ import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-
+@OpenshiftApplication(
+        name = "hello-world-fwless-openshift",        
+        ports = @Port(name = "web", containerPort = 8080),  
+        expose = true, 
+        imagePullPolicy = ImagePullPolicy.Always 
+)
 public class App
 {
     public static void main(String[] args) throws IOException {
@@ -24,4 +29,5 @@ public class App
         server.start();
     }
 
+    
 }
